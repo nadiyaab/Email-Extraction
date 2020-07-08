@@ -1,14 +1,18 @@
 ﻿using System;
 using System.IO;
+using System.Text.RegularExpressions;
+
 namespace Email_Extraction
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
             var content = File.ReadAllText ("sample.txt");
-            Console.WriteLine(content);
+            var regex = new Regex(@"@softwire\.com");
+
+            var results = regex.Matches(content);
+            Console.WriteLine(results.Count);
         }
     }
 }
